@@ -43,7 +43,7 @@ const Content = () => {
   if (loading) {
     return (
       <>
-        <div className="h-screen w-full flex items-center justify-center text-3xl">
+        <div className="h-screen w-full flex items-center justify-center text-4xl text-gray-800">
           Loading...
         </div>
       </>
@@ -53,8 +53,9 @@ const Content = () => {
   if (error) {
     return (
       <>
-        <div className="h-screen w-full flex items-center justify-center text-3xl">
-          {error.message}
+        <div className="h-screen w-full flex items-center justify-center text-4xl text-gray-800">
+          <p>{error.message}</p>
+          <p>API is not Working.</p>
         </div>
       </>
     );
