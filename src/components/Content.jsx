@@ -40,26 +40,29 @@ const Content = () => {
    return curData.name.toLowerCase().includes(search.toLowerCase())
   })
 
+ 
   if (loading) {
     return (
-      <>
-        <div className="h-screen w-full flex items-center justify-center text-4xl text-gray-800">
-          Loading...
+      <div className="min-h-screen w-full flex items-center justify-center">
+        <div className="text-4xl text-gray-800 animate-pulse flex flex-col items-center gap-4">
+          <div className="w-16 h-16 border-4 border-gray-800 border-t-transparent rounded-full animate-spin"></div>
+          <p>Loading Pokémon...</p>
         </div>
-      </>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <>
-        <div className="h-screen w-full flex items-center justify-center text-4xl text-gray-800">
-          <p>{error.message}</p>
-          <p>API is not Working.</p>
+      <div className="min-h-screen w-full flex items-center justify-center">
+        <div className="text-center space-y-4">
+          <p className="text-4xl text-red-600">{error.message}</p>
+          <p className="text-2xl text-gray-600">PokéAPI is not responding.</p>
         </div>
-      </>
+      </div>
     );
   }
+
   return (
     <section className="w-full">
       <div className="max-w-[1440px] mx-auto px-3 sm:px-5">
@@ -73,7 +76,7 @@ const Content = () => {
           />
         </div>
         <div className="my-7">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-2">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-5">
                 {
                     searchedData.map((curCard) => {
                         return (
